@@ -1,0 +1,18 @@
+repo init -u https://github.com/LineageOS/android.git -b lineage-21.0 --git-lfs
+git clone https://github.com/saroj-nokia/android_device_xiaomi_sapphire device/xiaomi/sapphire -b 14.0
+git clone https://github.com/saroj-nokia/android_kernel_xiaomi_sapphire device/xiaomi/sapphire-kernel -b 14.0
+git clone https://github.com/saroj-nokia/proprietary_vendor_xiaomi_sapphire vendor/xiaomi/sapphire -b 14.0
+git clone https://github.com/saroj-nokia/device_xiaomi_miuicamera-sapphire device/xiaomi/miuicamera-sapphire -b 14
+git clone https://gitlab.com/Saroj-Tajpuriya/vendor_gapps14 vendor/gapps -b udc
+git clone https://gitlab.com/kibria5/vendor_xiaomi_miuicamera-sapphire.git vendor/xiaomi/miuicamera-sapphire -b 14
+git clone https://github.com/xiaomi-sapphire/device_qcom_sepolicy_vndr_sm6225 device/qcom/sepolicy_vndr/sm6225 -b 14
+git clone https://github.com/AOSPA/android_device_xiaomi_sepolicy device/xiaomi/sepolicy -b uvite
+git clone https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi -b lineage-21
+git clone https://github.com/xiaomi-sapphire/hardware_qcom-caf_sm6225_audio_primary-hal hardware/qcom-caf/sm6225/audio/primary-hal -b 14
+git clone https://github.com/xiaomi-sapphire/hardware_qcom-caf_sm6225_audio_pal hardware/qcom-caf/sm6225/audio/pal -b 14
+git clone https://github.com/xiaomi-sapphire/hardware_qcom-caf_sm6225_audio_agm hardware/qcom-caf/sm6225/audio/agm -b 14
+git clone https://github.com/xiaomi-sapphire/hardware_qcom-caf_sm6225_media hardware/qcom-caf/sm6225/media -b 14
+git clone https://github.com/xiaomi-sapphire/hardware_qcom-caf_sm6225_display hardware/qcom-caf/sm6225/display -b 14
+git clone https://github.com/xiaomi-sapphire/hardware_qcom-caf_sm6225_dataipa hardware/qcom-caf/sm6225/dataipa -b 14
+git clone https://github.com/xiaomi-sapphire/hardware_qcom-caf_sm6225_data-ipa-cfg-mgr hardware/qcom-caf/sm6225/data-ipa-cfg-mgr -b 14
+
