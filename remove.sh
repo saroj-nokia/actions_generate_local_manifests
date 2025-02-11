@@ -18,13 +18,16 @@ if [ ! -d "manifest" ]; then
     git clone "$TESTING_URL" -b "$TESTING_BRANCH" manifest
 fi
 
-# Find the matching line in the manifest
-MATCH=$(grep -r "path=\"$PATH_TO_REMOVE\"" manifest)
-
-if [ -n "$MATCH" ]; then
+# Find all matches for the path in all manifest files
+while IFS= read -r MATCH; do
     # Extract the full name from the matched line
     FULL_NAME=$(echo "$MATCH" | sed -n 's/.*name="\([^"]*\)".*/\1/p')
     
-    # Add a removal entry to the REMOVE_PROJECTS array
-    REMOVE_PROJECTS[$FULL_NAME]="    <remove-project name=\"$FULL_NAME\" />"
-fi
+    if [ -n "$FULL_NAME" ]; then
+        # Check if there's already a remove-project for this name in any manifest file
+        if ! grep -r "remove-project.*name=\"$FULL_NAME\"" manifest/ >/dev/null; then
+            # Add a removal entry to the REMOVE_PROJECTS array only if it's not already marked for removal
+            REMOVE_PROJECTS[$FULL_NAME]="    <remove-project name=\"$FULL_NAME\" />"
+        fi
+    fi
+done < <(grep -r "path=\"$PATH_TO_REMOVE\"" manifest/)
